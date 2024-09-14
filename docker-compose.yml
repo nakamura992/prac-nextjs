@@ -1,0 +1,19 @@
+version: "3.8"
+
+services:
+  nextjs:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    container_name: prac-nextjs
+    volumes:
+      - ./next:/next
+      - node-modules:/next/node_modules
+    ports:
+      - 3000:3000
+    command: npm run dev
+    environment:
+      - WATCHPACK_POLLING=true
+
+volumes:
+  node-modules:
